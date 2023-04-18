@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .product-bar {
     height : 50px;
     background-color: blanchedalmond;
@@ -5,6 +7,46 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-family : 'Lobster'; 
     justify-content: space-around;
+}
+
+.src-div {
+    display : flex;
+    flex-direction : row;
+    align-items: center;
+}
+
+.src {
+    stroke-width: 1.8;
+    width : 35px;
+    margin-left : 10px;
+    stroke: #748E54;
+}
+
+.src:hover {
+    stroke: #51633a;
+    cursor: pointer;
+}
+
+#src-input {
+    border : 2px solid #748E54;
+    border-radius : 30px;
+    padding : 5px;
+    font-family : 'Lobster' 
+}
+
+.filters {
+    width : 280px;
+    background-color: #748E54;
+    box-shadow: inset 2px 2px 5px;
+    border-radius : 10px;
+    padding : 0 10px;
+    border : 2px solid #51633a
+}
+
+.checkboxes {
+    display : flex;
+    justify-content: space-between;
 }
 
