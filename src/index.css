@@ -194,7 +194,7 @@ body {
   margin-bottom : 25px;
   width : 80%;
   height : 500px;
-  background-image: linear-gradient(to bottom, #17150fc5, #655d4200),url('./assets/chest.jpg');
+  background-image: linear-gradient(to bottom, #17150fc5, #655d4200),url('./assets/chess.jpg');
   background-position: 0;
   background-size: cover;
   border-radius : 5px;
