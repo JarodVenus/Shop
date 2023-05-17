@@ -21,7 +21,7 @@ body {
   padding : 20px;
   position : fixed;
   width : 100%;
-  background-color: #FDF4ED;
+  background-color: transparent;
   height : 70px;
   top: 0;
 }
@@ -80,8 +80,8 @@ body {
   margin-top : 70px;
   flex-direction: column;
   align-items: center;
-  border-bottom : 1px solid #18534f;
-  padding-bottom : 20px
+  /* border-bottom : 1px solid #18534f; */
+  padding-bottom : 100px
 }
 
 .hero {
@@ -89,7 +89,7 @@ body {
   justify-content: space-between;
   flex-direction: column;
   text-align: center;
-  height : 450px;
+  height : 900px;
   width : 100%;
   background-color: #EBFAFE;
   padding : 50px;
@@ -98,6 +98,7 @@ body {
   background-size: cover ;
   background-position: 0% 30%;
   border-radius: 2px;
+  margin-bottom: 80px;
 }
 
 .hero h1 {
@@ -131,7 +132,7 @@ body {
 .categories {
   display : flex;
   justify-content: space-between;
-  width : 90%;
+  width : 80%;
   margin-top: 30px;
 }
 
@@ -143,10 +144,17 @@ body {
   text-decoration: underline;
 }
 
+.Affichage {
+  display : flex;
+  height : 400px;
+  text-align : center;
+  padding :  120px 0
+}
+
 .box {
   display : flex;
-  width : 400px;
-  height : 400px;
+  width : 300px;
+  height : 300px;
   background-color: #18534f;
   border-radius: 5px;
   margin-top: 10px;
@@ -166,6 +174,12 @@ body {
   width : 100%;
   justify-content : space-between;
   padding : 25px;
+  visibility: hidden;
+  transition : all 0.2s ease;
+}
+
+.box:hover span{
+  visibility: visible;
 }
 
 .styl {
@@ -182,6 +196,21 @@ body {
   background-image: url('./assets/type.jpg');
   background-size: cover;
   background-position: 0;
+}
+
+
+/* ------------------------------------------------ PRODUCT SECTION -------------------------------------------------------------------- */
+
+.produits-section{
+  display : flex;
+  justify-content: center;
+}
+
+.produits{
+  display : grid;
+  grid-template-areas: "a a a";
+  gap : 80px
+  /* grid-column : 2 / 2 */
 }
 
 /* ------------------------------------------------ NEWSLETTER SECTION ----------------------------------------------------------------- */

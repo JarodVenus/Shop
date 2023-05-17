@@ -12,7 +12,9 @@ const Hero = () => {
       </div>
       {/* Les catégories pourraient être les suivantes : Types de perles / Utilisation / Couleur / Style / Taille */}
       <div className="categories">
-      
+        <div className="Affichage">
+          <h2>Les produits du moment :</h2>
+        </div>
         <div className="category">
           <div className="box type">
             <span>
@@ -21,7 +23,7 @@ const Hero = () => {
             </span>
           </div>
         </div>
-        
+
         <div className="category">
           <div className="box util">
             <span>
@@ -30,7 +32,7 @@ const Hero = () => {
             </span>
           </div>
         </div>
-        
+
         <div className="category">
           <div className="box styl">
             <span>
