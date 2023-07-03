@@ -4,14 +4,16 @@ import SvgArrow from "../assets/arrow.jsx";
 const Hero = () => {
   return (
     <div className="section">
+    
       <div className="hero">
         <h1>
           Révèlez votre force intérieure <br /> tout en sublimant votre look
         </h1>
         <span>Voir le Magasin</span>
       </div>
+
       {/* Les catégories pourraient être les suivantes : Types de perles / Utilisation / Couleur / Style / Taille */}
-      <div className="categories">
+      {/* <div className="categories">
         <div className="Affichage">
           <h2>Les produits du moment :</h2>
         </div>
@@ -41,7 +43,7 @@ const Hero = () => {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

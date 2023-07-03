@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+.container-card {
+    height: 40vh;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    border-radius: 15px;
+    font-family: 'Ubuntu', 'sans-serif';
+    color:#748E54;
+}
+
+.container-card:hover {
+    background-color: #ffffff5c;
+    cursor: pointer;
+}
+
+.card-media  {
+    flex-grow: 2;
+    border-radius: 15px;
+}
+
+
+
+.card-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 0;
+    background-color: transparent;
+
+}
+
+.card-content {
+    flex-grow: 0;
+    background-color: transparent;
+    padding: 10px
+}
+
+.grid-container {
+    padding-right: 5vw;
+    padding-left: 5vw
+}

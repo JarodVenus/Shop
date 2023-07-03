@@ -1,5 +1,5 @@
 import React from "react";
-import SvgCart from "../assets/car"
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 
 const Navbar = () => {
@@ -16,8 +16,7 @@ const Navbar = () => {
             {/* <h1>VENUS</h1> */}
           </div>
           <div className="panier" >
-              <SvgCart className="cart" />
-              <a href="/cart">0</a>
+              <ShoppingCartOutlinedIcon className="cart" />
           </div>
         </div>
     </nav>

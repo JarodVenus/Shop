@@ -8,11 +8,12 @@
   padding : 0;
   margin : 0;
   box-sizing : border-box;
-  /* font-family: 'Roboto', sans-serif; */
+  overflow-x: hidden;
 }
 
 body {
-  background-color: #FDF4ED
+  /* background-color: #FDF4ED */
+  background-color: #121212;
 }
 
 .navigation {
@@ -22,7 +23,7 @@ body {
   position : fixed;
   width : 100%;
   background-color: transparent;
-  height : 70px;
+  height : 7vh;
   top: 0;
 }
 
@@ -58,22 +59,21 @@ body {
   margin-right : 380px
 }
 
-.cart {
+.cart { 
   stroke : #748E54;
 }
 
 .cart:hover {
-  background-color : #748E54;
   cursor : pointer;
   stroke : #FDF4ED
 }
 
-/* ---------------------------------------------- HEROS SECTION ------------------------------------------------ */
+/* ---------------------------------------------- HERO SECTION ------------------------------------------------ */
 
 .section {
   display : flex;
   justify-content : center;
-  margin-top : 70px;
+  margin-top : 7vh;
   flex-direction: column;
   align-items: center;
   /* border-bottom : 1px solid #18534f; */
@@ -85,7 +85,7 @@ body {
   justify-content: space-between;
   flex-direction: column;
   text-align: center;
-  height : 900px;
+  height : 90vh;
   width : 100%;
   background-color: #EBFAFE;
   padding : 50px;
@@ -117,7 +117,7 @@ body {
   border-radius: 20px;
   color : #18534f;
   font-family : 'Lobster', serif;
-  font-size : 25px
+  font-size : 25px;
 }
 
 .hero span:hover {
@@ -126,10 +126,12 @@ body {
 }
 
 .categories {
-  display : flex;
-  justify-content: space-between;
+  display : grid;
+  justify-content:space-evenly ;
   width : 80%;
   margin-top: 30px;
+  grid-template-columns: 10vw repeat(3, 20vw);
+  align-items: center;
 }
 
 .categories h2 {
@@ -149,12 +151,12 @@ body {
 
 .box {
   display : flex;
-  width : 300px;
+  /* width : 300px; */
   height : 300px;
   background-color: #18534f;
   border-radius: 5px;
   margin-top: 10px;
-  margin-bottom : 25px
+  margin-bottom : 25px;
 }
 
 .box:hover, .categories h2:hover {
@@ -227,11 +229,12 @@ body {
 .newsletter input {
   width : 50%;
   align-self: center;
-  padding : 10px 0 10px 270px;
+  padding : 10px;
   font-size : 20px;
   margin-top : 60px;
   border-radius: 20px;
   border : none;
+  text-align: center;
 }
 
 .newsletter button {
