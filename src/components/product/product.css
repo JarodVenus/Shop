@@ -2,17 +2,19 @@
 
 .container-card {
     height: 40vh;
-    padding: 10px;
     display:flex;
     flex-direction: column;
     border-radius: 15px;
     font-family: 'Ubuntu', 'sans-serif';
     color:#748E54;
+    border: 2px solid black;
+    background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 .container-card:hover {
     background-color: #ffffff5c;
     cursor: pointer;
+    color :#a6bb8d
 }
 
 .card-media  {
@@ -26,14 +28,17 @@
     display: flex;
     justify-content: flex-end;
     flex-grow: 0;
-    background-color: transparent;
+}
 
+.add-cart {
+    stroke: #748E54;
 }
 
 .card-content {
     flex-grow: 0;
     background-color: transparent;
-    padding: 10px
+    padding: 10px;
+    overflow-y: hidden;
 }
 
 .grid-container {

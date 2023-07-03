@@ -10,10 +10,10 @@ const Product = ( { product } ) => {
     <div className="container-card">
         <img className="card-media" src={product.image.url} />
         <div className="card-content">
-            <div >
-                <h5>
+            <div className="card-title">
+                <h4>
                     {product.name}
-                </h5>
+                </h4>
                 <h5>
                     {product.price.formatted_with_code}
                 </h5>
@@ -22,7 +22,7 @@ const Product = ( { product } ) => {
         </div>
         <div className="card-actions" >
             <IconButton aria-label="Add to Cart">
-                <AddShoppingCart />
+                <AddShoppingCart className="add-cart"/>
             </IconButton>
         </div>
     </div>

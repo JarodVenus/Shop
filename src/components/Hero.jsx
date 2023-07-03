@@ -9,7 +9,7 @@ const Hero = () => {
         <h1>
           Révèlez votre force intérieure <br /> tout en sublimant votre look
         </h1>
-        <span>Voir le Magasin</span>
+        <span>Voir les articles</span>
       </div>
 
       {/* Les catégories pourraient être les suivantes : Types de perles / Utilisation / Couleur / Style / Taille */}
