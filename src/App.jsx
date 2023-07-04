@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState,useRef } from "react"
 import Navbar from "./components/Navbar"
 import Newsletter from "./components/Newsletter"
 import Footer from "./components/Footer"
@@ -9,6 +9,7 @@ import Home from "./pages/Home"
 import { commerce } from "./lib/commerce"
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import Cart from "./components/cart/Cart"
+import Hero from "./components/Hero"
 
 
 function App() {
@@ -25,6 +26,12 @@ function App() {
     const cart = commerce.cart.retrieve()
     setCart(cart);
   }
+
+  const ref = useRef(null);
+
+  const handleClick = () => {
+    ref.current?.scrollIntoView({behavior: 'smooth'});
+  };
 
   const handleAddToCart = async (productId, quantity) => {
     const item = commerce.cart.add(productId, quantity)
@@ -54,20 +61,20 @@ function App() {
         <Routes>
           <Route exact path="/" element={
             <>
-              <Home />
+              <Hero handleClick={handleClick} />
+              <div ref={ref}>
               <Products 
               products={products}
               onAddToCart={handleAddToCart}
               />
+              </div>
             </>
           }/>
           <Route exact path="/cart" element={
-            <>
               <Cart 
                   cart={cart}
                   onUpdateCartQty={handleUpdateCartQty}
                 />
-            </>
           }
           />
         </Routes>

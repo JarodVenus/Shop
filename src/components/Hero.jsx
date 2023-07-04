@@ -1,7 +1,7 @@
 import React from "react";
 import SvgArrow from "../assets/arrow.jsx";
 
-const Hero = () => {
+const Hero = ({handleClick}) => {
   return (
     <div className="section">
     
@@ -9,7 +9,7 @@ const Hero = () => {
         <h1>
           Révèlez votre force intérieure <br /> tout en sublimant votre look
         </h1>
-        <span>Voir les articles</span>
+        <span onClick={handleClick}>Voir les articles</span>
       </div>
 
       {/* Les catégories pourraient être les suivantes : Types de perles / Utilisation / Couleur / Style / Taille */}
