@@ -9,14 +9,17 @@ import './product.css'
 //   { id:2, name:"Oeil de tigre/émassié", description:"Bracelet double à fermoir", price:"15€", image:"https://i.ibb.co/N9XknhT/bracelet-perles-double-onyx-hematite-oeil-de-tigre-bracelets-tendances-fr-1.jpg"}
 // ];
 
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
   
   return (
     <div className='section'>
         <Grid className='grid-container' container justify="center" spacing={4}>
           {products.map((product) => (
             <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                <Product product={product}/>
+                <Product 
+                product={product}
+                onAddToCart={onAddToCart}
+                />
             </Grid> 
           ))}
         </Grid>

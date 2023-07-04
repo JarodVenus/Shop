@@ -1,11 +1,23 @@
 import React from "react";
-import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from "@mui/material";
+import { Button, ThemeProvider, createTheme } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
 import './product.css'
 
 
 
-const Product = ( { product } ) => {
+const Product = ( { product , onAddToCart } ) => {
+    const handleAddToCart = () => {
+        onAddToCart(product.id, 1);
+    }
+
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main : "#748E54"
+            },
+        }
+    })
+
   return (
     <div className="container-card">
         <img className="card-media" src={product.image.url} />
@@ -20,10 +32,17 @@ const Product = ( { product } ) => {
             </div>
             {/* <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" /> */}
         </div>
-        <div className="card-actions" >
-            <IconButton aria-label="Add to Cart">
-                <AddShoppingCart className="add-cart"/>
-            </IconButton>
+        <div className="card-actions" onClick={ handleAddToCart }>
+            <ThemeProvider theme={theme}>
+                <Button 
+                startIcon={<AddShoppingCart className="add-cart"/>} 
+                color="primary" 
+                className="card-btn"
+                onClick={() => onAddToCart(product.id, 1)}
+                >           
+                    <p>Ajouter au Panier</p>
+                </Button>
+            </ThemeProvider>
         </div>
     </div>
   )

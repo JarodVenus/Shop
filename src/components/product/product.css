@@ -11,14 +11,12 @@
     background-color: hsla(0, 0%, 0%, 0.4);
 }
 
-.container-card:hover {
-    background-color: #ffffff5c;
-    cursor: pointer;
-    color :#a6bb8d
+.card-btn {
+    border-radius: 15px;
 }
 
 .card-media  {
-    flex-grow: 2;
+    height: 35vh;
     border-radius: 15px;
 }
 
@@ -26,16 +24,22 @@
 
 .card-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-grow: 0;
+    align-items: center;
+    overflow-y: hidden;
 }
 
 .add-cart {
     stroke: #748E54;
 }
 
+.card-actions p {
+    font-size: small;
+    text-align: end;
+}
+
 .card-content {
-    flex-grow: 0;
     background-color: transparent;
     padding: 10px;
     overflow-y: hidden;
