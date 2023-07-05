@@ -1,7 +1,9 @@
 import React from "react";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 import { Badge, IconButton, ThemeProvider, createTheme } from "@mui/material";
 import { styled } from '@mui/material/styles';
+import { Link, useLocation } from "react-router-dom";
 
 
 const Navbar = ({ totalItems }) => {
@@ -23,6 +25,10 @@ const Navbar = ({ totalItems }) => {
     },
   }));
 
+  const location = useLocation();
+
+  
+
   return (
     <nav className="navigation">
         <div className="navigation-items">
@@ -35,15 +41,25 @@ const Navbar = ({ totalItems }) => {
           <div className="logo">
             {/* <h1>VENUS</h1> */}
           </div>
+          {location.pathname == '/' ? (
           <div className="cart-icon">
             <ThemeProvider theme={theme} >
-              <IconButton color="primary" className="icon-btn">
+              <IconButton component={Link} to="/cart" color="primary" className="icon-btn">
                 <StyledBadge badgeContent={totalItems} color="secondary">
                   <ShoppingCartOutlinedIcon className="icon-btn"  />
                 </StyledBadge>
               </IconButton>
             </ThemeProvider>
           </div>
+          ) : (
+          <div>
+            <ThemeProvider theme={theme} >
+              <IconButton component={Link} to='/' color="primary" className="icon-btn">
+                <CloseIcon />
+              </IconButton>
+            </ThemeProvider>
+          </div>
+          )}
         </div>
     </nav>
   );

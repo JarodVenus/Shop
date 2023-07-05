@@ -13,16 +13,16 @@ const CartItem = ({ item , onUpdateCartQty }) => {
 
 	return (
 		<div className="cart-item">
-			<img className="item__image" src={item.image.url} alt={item.name} />
+			<img className="item-image" src={item.image.url} alt={item.name} />
 			<div className="item-details">
 				<h4 className="item-name">{item.name}</h4>
-				<div className="item-quantity">
-					<Button onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}> - </Button>
+				<div className="item-qty">
+					<Button variant="contained" color="success" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}> - </Button>
 					<p>{item.quantity}</p>
-					<Button onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}> + </Button>
+					<Button variant="contained" color="success" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}> + </Button>
 				</div>
 				<div className="item-price">
-					{item.line_total.formatted_price_with_symbol}
+					{item.line_total.formatted_with_symbol}
 				</div>
 			</div>
 			<IconButton aria-label="Supprimer">

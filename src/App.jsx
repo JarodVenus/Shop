@@ -23,7 +23,7 @@ function App() {
   }
 
   const fetchCart = async () => {
-    const cart = commerce.cart.retrieve()
+    const cart = await commerce.cart.retrieve()
     setCart(cart);
   }
 
@@ -34,13 +34,13 @@ function App() {
   };
 
   const handleAddToCart = async (productId, quantity) => {
-    const item = commerce.cart.add(productId, quantity)
-    setCart(item.cart);
+    const item = await commerce.cart.add(productId, quantity)
+    setCart(item);
   }
 
   const handleUpdateCartQty = async (lineItemId, quantity) => {
-    const resp = commerce.cart.update(lineItemId, { quantity })
-    setCart(resp.cart);
+    const resp = await commerce.cart.update(lineItemId, { quantity })
+    setCart(resp);
   }
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function App() {
   
 
       
-  console.log(products)
+  console.log(cart)
       
   return (
     <Router>

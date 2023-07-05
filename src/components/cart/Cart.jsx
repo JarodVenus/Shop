@@ -1,8 +1,9 @@
-import { IconButton } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import CartItem from './CartItem';
+import './cart.css'
 
 const Cart = ({ cart , onUpdateCartQty }) => {
 
@@ -22,11 +23,9 @@ const Cart = ({ cart , onUpdateCartQty }) => {
     );
   }
 
-
-  return (
+  const renderCartItem = () => (
     <div className='container'>
-        <h3 className='cart-title'>Votre Panier :</h3>
-        { renderEmptyMsg() }
+      <div className='item-list'>
         {cart.line_items.map((lineItem) => (
           <CartItem
           item={ lineItem }
@@ -35,17 +34,36 @@ const Cart = ({ cart , onUpdateCartQty }) => {
           className="cart-item"
           />
         ))}
-        <div className='cart-total'>
-          <p className='cart-total-title'>Total :</p>
-          <p className='cart-price'>{cart.subtotal.formatted_with_symbol}</p>
-        </div>
-        <div>
-          <IconButton className='cart-actions'>
-            <DeleteIcon />
-            <ShoppingCartCheckoutIcon />
-          </IconButton>
-        </div>
+      </div>
+      <div className='cart-actions'>
+      <div className='cart-total'>
+        <p className='cart-total-title'>Total :</p>
+        <p className='cart-price'>{cart.subtotal.formatted_with_symbol}</p>
+      </div>
+      <div className='cart-buttons'>
+        <Button className='cart-action' startIcon={<DeleteIcon />} variant="contained" color='error' >
+          <p>effacer panier</p>
+        </Button>
+        <Button className='cart-action' startIcon={<ShoppingCartCheckoutIcon />} variant="contained" color="success">
+          <p>Paiement</p>
+        </Button>
+      </div>
+      </div>
     </div>
+  )
+
+  if (!cart.line_items) return (
+  <div className='cart'>
+    <p>...Loading</p>
+  </div>
+  )
+
+
+  return (
+    <div className='cart'>
+        <h3 className='cart-title'>Votre Panier :</h3>
+        { !cart.line_items.length ? renderEmptyMsg() : renderCartItem() }
+        </div>
   )
 }
 
