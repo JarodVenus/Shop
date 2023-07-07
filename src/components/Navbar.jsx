@@ -34,9 +34,9 @@ const Navbar = ({ totalItems }) => {
         <div className="navigation-items">
           <div className="navigation-links">
               {/* <a href="/">Home</a> */}
-              <a href="/about">Qui est Venus ?</a>
+              <Link to="/about">Qui est Venus ?</Link>
               {/* <a href="/product">Shopping</a> */}
-              <a href="/contact">Contact</a>
+              <Link to="/contact">Contact</Link>
           </div>
           <div className="logo">
             {/* <h1>VENUS</h1> */}
@@ -45,9 +45,9 @@ const Navbar = ({ totalItems }) => {
           <div className="cart-icon">
             <ThemeProvider theme={theme} >
               <IconButton component={Link} to="/cart" color="primary" className="icon-btn">
-                <StyledBadge badgeContent={totalItems} color="secondary">
+                {/* <StyledBadge badgeContent={totalItems} color="secondary"> */}
                   <ShoppingCartOutlinedIcon className="icon-btn"  />
-                </StyledBadge>
+                {/* </StyledBadge> */}
               </IconButton>
             </ThemeProvider>
           </div>

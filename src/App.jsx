@@ -35,12 +35,12 @@ function App() {
 
   const handleAddToCart = async (productId, quantity) => {
     const item = await commerce.cart.add(productId, quantity)
-    setCart(item);
+    setCart(item.cart);
   }
 
   const handleUpdateCartQty = async (lineItemId, quantity) => {
     const resp = await commerce.cart.update(lineItemId, { quantity })
-    setCart(resp);
+    setCart(resp.cart);
   }
 
   useEffect(() => {
@@ -67,6 +67,7 @@ function App() {
               products={products}
               onAddToCart={handleAddToCart}
               />
+              <Newsletter />
               </div>
             </>
           }/>
@@ -77,8 +78,10 @@ function App() {
                 />
           }
           />
+        <Route exact path="/about" element={
+          <About />
+        } />
         </Routes>
-        <Newsletter />
         <Footer />
       </div>
     </Router>

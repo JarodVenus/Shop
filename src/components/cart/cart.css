@@ -1,8 +1,8 @@
 .cart  {
     color: #748E54;
-    height: 100vh;
+    height: 78vh;
     width: 80vw ;
-    margin: 15vh auto;
+    margin: 15vh auto 0 auto;
 }
 
 .container {
