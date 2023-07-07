@@ -2,7 +2,7 @@ import React from "react";
 import { IconButton, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const CartItem = ({ item , onUpdateCartQty }) => {
+const CartItem = ({ item , onUpdateCartQty , onRemoveFromCart }) => {
 	const handleUpdateCartQty = (lineItemId, quantity) => {
 		onUpdateCartQty(lineItemId, quantity);
 	};
@@ -10,6 +10,7 @@ const CartItem = ({ item , onUpdateCartQty }) => {
 	const handleRemoveFromCart = () => {
 		onRemoveFromCart(item.id);
 	  }
+
 
 	return (
 		<div className="cart-item">
@@ -25,7 +26,7 @@ const CartItem = ({ item , onUpdateCartQty }) => {
 					{item.line_total.formatted_with_symbol}
 				</div>
 			</div>
-			<IconButton aria-label="Supprimer">
+			<IconButton aria-label="Supprimer" onClick={ handleRemoveFromCart } >
 				<DeleteIcon />
 			</IconButton>
 		</div>

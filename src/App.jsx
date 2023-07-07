@@ -43,6 +43,16 @@ function App() {
     setCart(resp.cart);
   }
 
+  const handleRemoveFromCart = async (lineItemId) => {
+    const resp = await commerce.cart.remove(lineItemId)
+    console.log(resp)
+  }
+
+  const handleEmptyCart = async () => {
+    const cart = commerce.cart.empty()
+    console.log(cart);
+  }
+
   useEffect(() => {
     fetchProducts();
     fetchCart();
@@ -66,6 +76,7 @@ function App() {
               <Products 
               products={products}
               onAddToCart={handleAddToCart}
+              onRemoveFromCart={handleRemoveFromCart}
               />
               <Newsletter />
               </div>
@@ -75,6 +86,7 @@ function App() {
               <Cart 
                   cart={cart}
                   onUpdateCartQty={handleUpdateCartQty}
+                  onEmptyCart={handleEmptyCart}
                 />
           }
           />

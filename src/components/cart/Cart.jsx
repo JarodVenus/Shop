@@ -5,7 +5,7 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import CartItem from './CartItem';
 import './cart.css'
 
-const Cart = ({ cart , onUpdateCartQty }) => {
+const Cart = ({ cart , onUpdateCartQty , onEmptyCart , onRemoveFromCart }) => {
 
   const handleEmptyCart = () => {
     onEmptyCart();
@@ -17,9 +17,11 @@ const Cart = ({ cart , onUpdateCartQty }) => {
     }
 
     return (
-      <p className='empty-msg'>
-        Vous n'avez encore aucuns articles !
-      </p>
+      <div className='container'>
+        <p className='empty-msg'>
+          Vous n'avez encore aucuns articles !
+        </p>
+      </div>
     );
   }
 
@@ -31,6 +33,7 @@ const Cart = ({ cart , onUpdateCartQty }) => {
           item={ lineItem }
           key={ lineItem.id }
           onUpdateCartQty={onUpdateCartQty}
+          onRemoveFromCart={onRemoveFromCart}
           className="cart-item"
           />
         ))}
@@ -41,7 +44,7 @@ const Cart = ({ cart , onUpdateCartQty }) => {
         <p className='cart-price'>{cart.subtotal.formatted_with_symbol}</p>
       </div>
       <div className='cart-buttons'>
-        <Button className='cart-action' startIcon={<DeleteIcon />} variant="contained" color='error' >
+        <Button className='cart-action' startIcon={<DeleteIcon />} variant="contained" color='error' onClick={() => handleEmptyCart()} >
           <p>effacer panier</p>
         </Button>
         <Button className='cart-action' startIcon={<ShoppingCartCheckoutIcon />} variant="contained" color="success">

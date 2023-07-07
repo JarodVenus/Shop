@@ -6,10 +6,7 @@ import './product.css'
 
 
 const Product = ( { product , onAddToCart } ) => {
-    const handleAddToCart = () => {
-        onAddToCart(product.id, 1);
-    }
-
+    
     const theme = createTheme({
         palette: {
             primary: {
@@ -17,7 +14,11 @@ const Product = ( { product , onAddToCart } ) => {
             },
         }
     })
-
+    
+    const handleAddToCart = () => {
+        onAddToCart(product.id, 1);
+    }
+    
   return (
     <div className="container-card">
         <img className="card-media" src={product.image.url} />
