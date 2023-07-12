@@ -6,11 +6,11 @@ import { styled } from '@mui/material/styles';
 import { Link, useLocation } from "react-router-dom";
 
 
-const Navbar = ({ totalItems }) => {
+const Navbar = () => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#748E54'
+        main: '#454411'
       },
       secondary: {
         main: "hsla(0, 0%, 0%, 0)"
@@ -39,23 +39,23 @@ const Navbar = ({ totalItems }) => {
               <Link to="/contact">Contact</Link>
           </div>
           <div className="logo">
-            {/* <h1>VENUS</h1> */}
+            <img width="64" height="64" src="https://img.icons8.com/laces/64/454411/venus-symbol.png" alt="venus-symbol"/>
           </div>
-          {location.pathname == '/' ? (
-          <div className="cart-icon">
+          {location.pathname == '/cart' ? (
+            <div>
+              <ThemeProvider theme={theme} >
+                <IconButton component={Link} to='/' color="primary" className="icon-btn">
+                  <CloseIcon />
+                </IconButton>
+              </ThemeProvider>
+            </div>
+          ) : (
+            <div className="cart-icon">
             <ThemeProvider theme={theme} >
               <IconButton component={Link} to="/cart" color="primary" className="icon-btn">
                 {/* <StyledBadge badgeContent={totalItems} color="secondary"> */}
                   <ShoppingCartOutlinedIcon className="icon-btn"  />
                 {/* </StyledBadge> */}
-              </IconButton>
-            </ThemeProvider>
-          </div>
-          ) : (
-          <div>
-            <ThemeProvider theme={theme} >
-              <IconButton component={Link} to='/' color="primary" className="icon-btn">
-                <CloseIcon />
               </IconButton>
             </ThemeProvider>
           </div>

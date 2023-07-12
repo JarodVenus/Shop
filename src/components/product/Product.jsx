@@ -1,19 +1,14 @@
 import React from "react";
-import { Button, ThemeProvider, createTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from '@mui/material'
 import { AddShoppingCart } from "@mui/icons-material";
 import './product.css'
 
 
 
 const Product = ( { product , onAddToCart } ) => {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up("md"));
     
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main : "#748E54"
-            },
-        }
-    })
     
     const handleAddToCart = () => {
         onAddToCart(product.id, 1);
@@ -27,23 +22,20 @@ const Product = ( { product , onAddToCart } ) => {
                 <h4>
                     {product.name}
                 </h4>
-                <h5>
+                <h4>
                     {product.price.formatted_with_code}
-                </h5>
+                </h4>
             </div>
             {/* <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" /> */}
         </div>
-        <div className="card-actions" onClick={ handleAddToCart }>
-            <ThemeProvider theme={theme}>
-                <Button 
-                startIcon={<AddShoppingCart className="add-cart"/>} 
-                color="primary" 
+        <div className="card-actions" onClick={ handleAddToCart }> 
+                <button 
                 className="card-btn"
                 onClick={() => onAddToCart(product.id, 1)}
-                >           
-                    <p>Ajouter au Panier</p>
-                </Button>
-            </ThemeProvider>
+                >
+                    <AddShoppingCart className="add-cart"/>           
+                    {matches ? (<p>Ajouter au Panier</p>) : "" }
+                </button>
         </div>
     </div>
   )

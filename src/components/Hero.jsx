@@ -1,49 +1,29 @@
 import React from "react";
 import SvgArrow from "../assets/arrow.jsx";
+import Product from "./product/Product.jsx";
 
-const Hero = ({handleClick}) => {
+const Hero = ({handleClick , bestproducts, onAddToCart}) => {
   return (
     <div className="section">
     
       <div className="hero">
         <h1>
-          Révèlez votre force intérieure <br /> tout en sublimant votre look
+          Révèlez votre force intérieure tout en sublimant votre look
         </h1>
-        <span onClick={handleClick}>Voir les articles</span>
+        <span onClick={handleClick}>Voir le catalogue</span>
+        <div className="separation" />
+        <h3 className="bestsellers-title">La sélection Venus</h3>
+        <div className="bestsellers-box" >
+          {bestproducts.map((product) => (
+            <div className="bestseller-item" key={product.id}>
+              <Product
+              product={product}
+              onAddToCart={onAddToCart}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* Les catégories pourraient être les suivantes : Types de perles / Utilisation / Couleur / Style / Taille */}
-      {/* <div className="categories">
-        <div className="Affichage">
-          <h2>Les produits du moment :</h2>
-        </div>
-        <div className="category">
-          <div className="box type">
-            <span>
-              <h2>Les Types de perles</h2>
-              <SvgArrow className="arrow" />
-            </span>
-          </div>
-        </div>
-
-        <div className="category">
-          <div className="box util">
-            <span>
-              <h2>Leur Utilisation</h2>
-              <SvgArrow className="arrow" />
-            </span>
-          </div>
-        </div>
-
-        <div className="category">
-          <div className="box styl">
-            <span>
-              <h2>Différents Styles</h2>
-              <SvgArrow className="arrow" />
-            </span>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

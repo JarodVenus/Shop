@@ -55,7 +55,7 @@ const Cart = ({ cart , onUpdateCartQty , onEmptyCart , onRemoveFromCart }) => {
     </div>
   )
 
-  if (!cart.line_items) return (
+  if (!cart?.line_items) return (
   <div className='cart'>
     <p>...Loading</p>
   </div>

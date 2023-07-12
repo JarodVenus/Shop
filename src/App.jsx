@@ -5,7 +5,6 @@ import Footer from "./components/Footer"
 import Products from "./components/product/Products"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
-import Home from "./pages/Home"
 import { commerce } from "./lib/commerce"
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import Cart from "./components/cart/Cart"
@@ -14,7 +13,9 @@ import Hero from "./components/Hero"
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({})
+  const [bestsellers, setBestsellers] = useState([]); 
+  const [cart, setCart] = useState({});
+  const [categories, setCategories] = useState([]);
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -22,10 +23,28 @@ function App() {
     setProducts(data);
   }
 
+  const fetchBestSellers = async () => {
+    const { data } = await commerce.products.list( {category_slug: ["best-seller"]});
+
+    setBestsellers(data);
+  }
+
   const fetchCart = async () => {
     const cart = await commerce.cart.retrieve()
     setCart(cart);
   }
+
+  const fetchCategories = async () => {
+    const { data } = await commerce.categories.list();
+    setCategories(data)
+  }
+  
+  useEffect(() => {
+    fetchProducts();
+    fetchBestSellers();
+    fetchCart();
+    fetchCategories();
+  },[])
 
   const ref = useRef(null);
 
@@ -53,28 +72,23 @@ function App() {
     console.log(cart);
   }
 
-  useEffect(() => {
-    fetchProducts();
-    fetchCart();
-  },[])
-  
-
-      
-  console.log(cart)
       
   return (
     <Router>
       <div className="App">
-        <Navbar
-        totalItems={cart.total_items}
-        />
+        <Navbar />
         <Routes>
           <Route exact path="/" element={
             <>
-              <Hero handleClick={handleClick} />
+              <Hero
+                handleClick={handleClick} 
+                onAddToCart={handleAddToCart}
+                bestproducts={bestsellers}
+              />
               <div ref={ref}>
               <Products 
               products={products}
+              categories={categories}
               onAddToCart={handleAddToCart}
               onRemoveFromCart={handleRemoveFromCart}
               />
