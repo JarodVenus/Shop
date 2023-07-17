@@ -6,7 +6,11 @@
     --white: hsl(0, 0%, 95%);
     --mainfont: 'Abhaya Libre', serif;
     --hovercolor: hsl(87, 26%, 44%, 0.3)
-  }
+}
+
+.grid-item {
+    overflow-y: hidden;
+}
 
 .container-card {
     height: 40vh;
@@ -18,15 +22,16 @@
     /* box-shadow: -1px 1px 5px black; */
     background-color: var(--white);
     transition: all 0.3s ease-in-out;
-
 }
 
 .container-card:hover {
-    /* background-color: hsla(0, 0%, 0%, 0.6); */
     cursor: pointer;
     transform: translateY(-2%);
     box-shadow: -1px 1px 5px black;
-    text-shadow: -1px 1px 10px hsla(0, 0%, 0%, 0.6);
+}
+
+.container-card:hover .card-title {
+    text-decoration: underline;
 }
 
 .container-card:active {
@@ -37,7 +42,6 @@
 
 .card-media  {
     height: 35vh;
-    /* border-radius: 15px; */
 }
 
 .container-card 
@@ -89,7 +93,7 @@
 .cat-bar {
     background-color: var(--white);
     width: 100vw;
-    height: 14vh;
+    /* height: 14vh; */
     padding: 0 2rem;
     margin-bottom: 2vh;
     border: 2px solid var(--secondary);
@@ -113,7 +117,7 @@
 .categories {
     display: flex;
     justify-content: space-evenly;
-    width: 60%;
+    min-width: 60%;
     padding-top: 1.5rem;
     align-self: flex-start;
     gap: 1rem;
@@ -133,6 +137,7 @@
     border-radius: 15px;
     overflow-y: hidden;
     transition: all 0.2s ease-in-out;
+    font-weight: 600;
 }
 
 .category:hover {
@@ -145,3 +150,12 @@
     transform: translateY(3%)
 }
 
+.dropdown-categories {
+    position: absolute;
+    border: 1px solid var(--secondary);
+    display: flex;
+    flex-direction: column;
+    top: calc(-100% + .25rem);
+    background-color: blue;
+    
+}

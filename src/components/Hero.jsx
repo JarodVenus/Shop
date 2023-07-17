@@ -8,7 +8,7 @@ const Hero = ({handleClick , bestproducts, onAddToCart}) => {
     
       <div className="hero">
         <h1>
-          Révèlez votre force intérieure tout en sublimant votre look
+          Révèlez votre force intérieure tout en<br/>sublimant votre look
         </h1>
         <span onClick={handleClick}>Voir le catalogue</span>
         <div className="separation" />

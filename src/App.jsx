@@ -16,28 +16,32 @@ function App() {
   const [bestsellers, setBestsellers] = useState([]); 
   const [cart, setCart] = useState({});
   const [categories, setCategories] = useState([]);
-
+  const [categoriesFiltered, setCategoriesFiltered] = useState("");
+  
+  
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
-
+    
     setProducts(data);
   }
-
+  
   const fetchBestSellers = async () => {
     const { data } = await commerce.products.list( {category_slug: ["best-seller"]});
-
+    
     setBestsellers(data);
   }
-
+  
   const fetchCart = async () => {
     const cart = await commerce.cart.retrieve()
     setCart(cart);
   }
-
+  
   const fetchCategories = async () => {
     const { data } = await commerce.categories.list();
     setCategories(data)
   }
+
+  console.log(products)
   
   useEffect(() => {
     fetchProducts();
@@ -45,8 +49,13 @@ function App() {
     fetchCart();
     fetchCategories();
   },[])
-
+  
+  
   const ref = useRef(null);
+  
+  const handleAddCategory = (selectedCategory) => {
+    setCategoriesFiltered(selectedCategory);
+  }
 
   const handleClick = () => {
     ref.current?.scrollIntoView({behavior: 'smooth'});
@@ -91,6 +100,7 @@ function App() {
               categories={categories}
               onAddToCart={handleAddToCart}
               onRemoveFromCart={handleRemoveFromCart}
+              onAddCategories={handleAddCategory}
               />
               <Newsletter />
               </div>

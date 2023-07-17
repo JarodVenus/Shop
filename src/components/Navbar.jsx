@@ -39,7 +39,9 @@ const Navbar = () => {
               <Link to="/contact">Contact</Link>
           </div>
           <div className="logo">
-            <img width="64" height="64" src="https://img.icons8.com/laces/64/454411/venus-symbol.png" alt="venus-symbol"/>
+            <Link to="/">
+              <img width="64" height="64" src="https://img.icons8.com/laces/64/454411/venus-symbol.png" alt="venus-symbol"/>
+            </Link>
           </div>
           {location.pathname == '/cart' ? (
             <div>
