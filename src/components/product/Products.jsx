@@ -5,13 +5,9 @@ import './product.css'
 import CategoryBar from './CategoryBar'
 
 
-// const products = [
-//   { id:1, name:"Oeil de tigre/émassié", description:"Bracelet double à élastique", price:"5€", image:"https://i.ibb.co/N9XknhT/bracelet-perles-double-onyx-hematite-oeil-de-tigre-bracelets-tendances-fr-1.jpg"},
-//   { id:2, name:"Oeil de tigre/émassié", description:"Bracelet double à fermoir", price:"15€", image:"https://i.ibb.co/N9XknhT/bracelet-perles-double-onyx-hematite-oeil-de-tigre-bracelets-tendances-fr-1.jpg"}
-// ];
 
-const Products = ({ products, categories, onAddToCart, onAddCategories }) => {
-  
+const Products = ({ products, categories, onAddToCart, onAddCategories, onGetProduct, onOpen }) => {
+
   return (
     <div className='section'>
       <CategoryBar categories= {categories} onAddCategories={onAddCategories} />
@@ -21,10 +17,13 @@ const Products = ({ products, categories, onAddToCart, onAddCategories }) => {
               <Product 
               product={product}
               onAddToCart={onAddToCart}
+              onOpen={onOpen}
+              onGetProduct={onGetProduct}
               />
           </Grid> 
         ))}
       </Grid>
+      
     </div>
   )
 }

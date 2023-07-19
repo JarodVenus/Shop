@@ -159,3 +159,82 @@
     background-color: blue;
     
 }
+
+.modal-box {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    border-radius: 10px;
+}
+
+.product-page{
+    height: 80vh;
+    width:60vw;
+    display: flex;
+    background-color: var(--white);
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary);
+    padding: 2rem
+}
+
+.product-image {
+    height: 70vh;
+    overflow-y: hidden;
+}
+
+.product-image img {
+    height: 100%;
+    width: 30vw;
+    border-radius: 10px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    height: 100%;
+    width: 20vw;
+    justify-content: space-around;
+}
+
+.title-descr {
+    display: flex;
+    flex-direction: column;
+    height: 80%
+}
+
+.title-descr h2 {
+    margin-bottom: 5rem;
+}
+
+.title-descr p {
+    margin-bottom: 1.5rem;
+}
+
+.addcart {
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:  var(--mainfont);
+    font-size: 1.05em;
+    font-weight: 800;
+    color: var(--secondary);
+    background-color: var(--primary);
+    transition: all .3s ease-in-out;
+    align-self: flex-end
+}
+
+.addcart:hover {
+    cursor: pointer;
+}
+
+.addcart:active{
+    color: var(--primary);
+    background-color: var(--secondary);
+    transform: translateY(15%)
+}

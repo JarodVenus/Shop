@@ -13,6 +13,7 @@
     height: 78vh;
     margin: 15vh auto 0 auto;
     border-bottom: 1px solid var(--secondary);
+    text-align: center;
 }
 
 .cart-title {

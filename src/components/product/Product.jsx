@@ -5,7 +5,7 @@ import './product.css'
 
 
 
-const Product = ( { product , onAddToCart } ) => {
+const Product = ( { product , onAddToCart , onOpen, onGetProduct} ) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("md"));
     
@@ -13,10 +13,15 @@ const Product = ( { product , onAddToCart } ) => {
     const handleAddToCart = () => {
         onAddToCart(product.id, 1);
     }
+
+    const handleOpen = () => {
+        onOpen()
+        onGetProduct(product)
+    }
     
   return (
-    <div className="container-card">
-        <img className="card-media" src={product.image.url} />
+    <div className="container-card"  >
+        <img className="card-media" onClick={handleOpen} src={product.image.url} />
         <div className="card-content">
             <div className="card-title">
                 <h4>
@@ -31,7 +36,6 @@ const Product = ( { product , onAddToCart } ) => {
         <div className="card-actions" onClick={ handleAddToCart }> 
                 <button 
                 className="card-btn"
-                onClick={() => onAddToCart(product.id, 1)}
                 >
                     <AddShoppingCart className="add-cart"/>           
                     {matches ? (<p>Ajouter au Panier</p>) : "" }

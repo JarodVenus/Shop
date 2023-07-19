@@ -2,7 +2,7 @@ import React from "react";
 import SvgArrow from "../assets/arrow.jsx";
 import Product from "./product/Product.jsx";
 
-const Hero = ({handleClick , bestproducts, onAddToCart}) => {
+const Hero = ({handleClick , bestproducts, onAddToCart, onGetProduct, onOpen}) => {
   return (
     <div className="section">
     
@@ -19,6 +19,8 @@ const Hero = ({handleClick , bestproducts, onAddToCart}) => {
               <Product
               product={product}
               onAddToCart={onAddToCart}
+              onGetProduct={onGetProduct}
+              onOpen={onOpen}
               />
             </div>
           ))}

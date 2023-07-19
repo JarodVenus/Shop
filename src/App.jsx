@@ -9,6 +9,8 @@ import { commerce } from "./lib/commerce"
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import Cart from "./components/cart/Cart"
 import Hero from "./components/Hero"
+import { Modal } from "@mui/material"
+import ProductPage from "./components/product/ProductPage"
 
 
 function App() {
@@ -18,6 +20,15 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [categoriesFiltered, setCategoriesFiltered] = useState("");
   
+  const [isOpen, setIsOpen] = useState(false);
+  const [clickedProduct, setClickedProduct] = useState()
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+
+  const handleGetProduct = (product) => {
+    setClickedProduct(product);
+  }
+
   
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -46,10 +57,13 @@ function App() {
   useEffect(() => {
     fetchProducts();
     fetchBestSellers();
-    fetchCart();
     fetchCategories();
+    fetchCart();
   },[])
-  
+
+  useEffect(() => {
+    fetchCart();
+  },[cart])  
   
   const ref = useRef(null);
   
@@ -93,14 +107,17 @@ function App() {
                 handleClick={handleClick} 
                 onAddToCart={handleAddToCart}
                 bestproducts={bestsellers}
+                onOpen={handleOpen}
+                onGetProduct={handleGetProduct}
               />
               <div ref={ref}>
               <Products 
               products={products}
               categories={categories}
               onAddToCart={handleAddToCart}
-              onRemoveFromCart={handleRemoveFromCart}
               onAddCategories={handleAddCategory}
+              onOpen={handleOpen}
+              onGetProduct={handleGetProduct}
               />
               <Newsletter />
               </div>
@@ -111,6 +128,7 @@ function App() {
                   cart={cart}
                   onUpdateCartQty={handleUpdateCartQty}
                   onEmptyCart={handleEmptyCart}
+                  onRemoveFromCart={handleRemoveFromCart}
                 />
           }
           />
@@ -118,6 +136,14 @@ function App() {
           <About />
         } />
         </Routes>
+        <Modal
+        open={isOpen}
+        onClose={handleClose}
+      >
+        <div className='modal-box'>
+          <ProductPage product={clickedProduct} />
+        </div>
+      </Modal>
         <Footer />
       </div>
     </Router>
