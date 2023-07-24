@@ -3,8 +3,13 @@ import React from 'react'
 import { stripHtml } from "string-strip-html";
 
 
-const ProductPage = ({ product }) => {
-    const description = stripHtml(product.description).result
+const ProductPage = ({ product, onAddToCart }) => {
+    const description = stripHtml(product.description).result;
+
+    const handleAddToCart = () => {
+        onAddToCart(product.id, 1);
+    }
+
   return (
     <div className='product-page'>
         <div className='product-image'>
@@ -17,7 +22,7 @@ const ProductPage = ({ product }) => {
                 <p>{description}</p>
             </div>
            
-            <button className='addcart'>
+            <button className='addcart'  onClick={ handleAddToCart }>
                 <AddShoppingCart />
                 Ajouter au panier
             </button>

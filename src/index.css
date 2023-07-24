@@ -131,11 +131,12 @@ h1 {
   color : var(--primary);
   font-size : 25px;
   font-weight: bold;
+  transition: all .5s ease-in-out;
 }
 
 .hero span:hover {
   cursor: pointer;
-  color: var(--secondary);
+  text-decoration: underline;
   border: 2px solid var(--primary);
 }
 

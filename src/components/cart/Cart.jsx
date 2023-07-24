@@ -16,9 +16,7 @@ const Cart = ({ cart, onUpdateCartQty, onEmptyCart, onRemoveFromCart }) => {
 		}
 
 		return (
-			<div className="container">
-				<p className="empty-msg">Vous n'avez encore aucuns articles !</p>
-			</div>
+				<p className="empty-msg">Vous n'avez encore aucuns articles !</p>			
 		);
 	};
 

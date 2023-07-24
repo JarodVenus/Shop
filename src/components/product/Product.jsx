@@ -40,7 +40,7 @@ const Product = ( { product , onAddToCart , onOpen, onGetProduct} ) => {
                     <AddShoppingCart className="add-cart"/>           
                     {matches ? (<p>Ajouter au Panier</p>) : "" }
                 </button>
-        </div>
+        </div>        
     </div>
   )
 }
